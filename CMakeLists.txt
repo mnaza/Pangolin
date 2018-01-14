@@ -18,6 +18,7 @@ include(CPack)
 
 option( BUILD_EXAMPLES "Build Examples" ON )
 option( BUILD_TESTS "Build Tests" ON )
+option( BUILD_PYTHON_BINDINGS "Build Python Bindings" ON )
 
 if(_WIN_)
     option( BUILD_SHARED_LIBS    "Build Shared Library" OFF)
@@ -100,4 +101,9 @@ if(BUILD_EXAMPLES)
   set(Pangolin_DIR ${Pangolin_BINARY_DIR}/src)
   add_subdirectory(examples)
   add_subdirectory(tools)
+endif()
+
+if(BUILD_PYTHON_BINDINGS)
+  set(Pangolin_DIR ${Pangolin_BINARY_DIR}/src)
+  add_subdirectory(pybind)
 endif()
